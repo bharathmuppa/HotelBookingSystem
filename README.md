@@ -1,7 +1,7 @@
 # HotelBookingSystem
 A simple project for Hotel Booking which is based on java for providing RestAPI and Angular 1.0 for frontend to consume data.
 
-#Installatoin Required
+#Installations Required
 
 1. MySql
 2. MySQL Query browser
