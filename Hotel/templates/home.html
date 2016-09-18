@@ -1,0 +1,40 @@
+<!-- page-home.html -->
+<div class="container">
+	<div class="roomContainer">
+		<h3>Rooms Slot</h3>
+	     		<div class='my-legend'>
+			
+			<div class='legend-scale'>
+				<ul class='legend-labels'>
+
+					<li>
+						<span style='background:green;'></span>Available
+					</li>
+					<li>
+						<span style='background:red;'></span>Booked
+					</li>
+					<li>
+						<span style='background:blue;'></span>Status UnKnown
+					</li>
+				</ul>
+			</div>
+
+		</div>
+		<room-layout></room-layout>
+
+	</div>
+
+	<div id="calenderHeader">
+
+		<h3>Check Availability</h3>
+		<label for="from">On :</label>
+		<input type="text" id="from" name="from" placeholder="YYYY-mm-dd ">
+		<!--label for="to">to</label>
+		<input type="text" id="to" name="to" placeholder="to date"-->
+		<button type="submit" class="btn btn-default" ng-click="getAvailableRooms()">
+			Search
+		</button>
+
+	</div>
+</div>
+

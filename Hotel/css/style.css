@@ -1,0 +1,529 @@
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+#container1 {
+	width: 50%;
+	float: left;
+}
+
+#container2 {
+	width: 50%;
+	float: right;
+}
+.navbar {
+	height: 15%;
+	min-height: 0;
+	margin-bottom: 0;
+}
+.page {
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	height: 85%;
+}
+
+.page h1 {
+	font-size: 60px;
+}
+
+.page a {
+	margin-top: 50px;
+}
+/* PAGES (specific colors for each page)
+ ============================================================================= */
+
+.page-home {
+	background: #00D0BC;
+	color: #00907c;
+}
+
+.page-about, .page-booked {
+	background: #E59400;
+	color: #a55400;
+}
+
+.page-contact {
+	background: #0c9;
+	color: #9e0000;
+}
+@keyframes slideOutLeft {
+to {
+	transform: translateX(-100%);
+}
+}
+@keyframes
+slideInRight {from {
+	transform: translateX(100%);
+}
+to {
+	transform: translateX(0);
+}
+}
+/* slide in from the bottom */
+
+.page.ng-enter {
+	animation: slideInRight 0.5s both ease-in;
+}
+
+.page.ng-leave {
+	transform-origin: 0% 0%;
+	animation: slideInLeft 1s both ease-in;
+}
+/* CSS used here will be applied after bootstrap.css */
+.inputDiv {
+	margin-left: 35%;
+}
+.page-register .inputDiv {
+	margin-left: 10%;
+	width: 80%;
+}
+.page-login {
+	background: url('../images/Bora_bora.jpg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+.page-register {
+	background: url('../images/hotelTree.jpg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: 112%;
+}
+
+.panel-default {
+	opacity: 0.9;
+	margin-top: 30px;
+}
+
+.form-group.last {
+	margin-bottom: 0px;
+}
+/*for home page date validation css*/
+.full button span {
+	background-color: limegreen;
+	border-radius: 32px;
+	color: black;
+}
+.partially button span {
+	background-color: orange;
+	border-radius: 32px;
+	color: black;
+}
+#calenderHeader {
+	background: #00907c;
+	height: 50%;
+	position: absolute;
+	top: 14%;
+	left: 60%;
+	border: 1px solid;
+	border-radius: 11px;
+	width: 39%;
+	padding: 1%;
+}
+#calenderHeader h3, .roomContainer h3 {
+	color: whitesmoke;
+	margin: 22px;
+}
+#calenderHeader input {
+	display: inline-block;
+	width: 60%;
+	margin-right: 3%;
+	padding: 5px;
+	margin-top: 10px;
+	border: 1px solid #00907c;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+#calenderHeader label {
+	display: inline-block;
+	width: 20%;
+	margin-right: 3%;
+	color: white;
+}
+.roomContainer {
+	background: #00907c;
+	height: 70%;
+	position: absolute;
+	top: 14%;
+	left: 5%;
+	border: 1px solid;
+	border-radius: 11px;
+	width: 44%;
+	padding: 1%;
+}
+.room {
+	/*
+	 display: block;
+	 width: 80%;
+	 background: whitesmoke;
+	 float: left;
+	 margin-left: 10%;
+	 height: 52%;
+	 margin-top: 60px;
+	 margin-bottom: 60px;*/
+	overflow: auto;
+	display: inline-block;
+}
+span.roomNo {
+	float: left;
+	margin: 2px;
+	padding: 3px;
+	border: 2px solid;
+}
+span.roomNo:nth-child(5) {
+	clear: left;
+}
+span.roomNo.available {
+	border: 2px solid green;
+}
+span.roomNo.booked {
+	border: 2px solid red;
+}
+.east {
+	/*
+	 display: inline-block;
+	 width: 9%;
+	 float: left;
+	 margin: 2%;
+	 border-top: 0;*/
+
+}
+.west {
+	/*
+	 display: inline-block;
+	 width: 9%;
+	 float: left;
+	 margin: 2%;
+	 border-bottom: 0;*/
+
+}
+
+#calenderHeader button {
+	margin-top: 5px;
+	margin-left: 120px;
+}
+
+.pop-up {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,0.5);
+	display: none;
+}
+.pop-up section {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: white;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	height: 350px;
+	width: 600px;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
+.pop-up section h3 {
+	/*
+	 background: #00907C;
+	 color: white;
+	 height: 45px;
+	 */
+	line-height: 45px;
+	margin: 0;
+	/*
+	 padding-left: 2%;
+	 font-size: 22px;
+	 -webkit-border-radius: 5px 5px 0 0;
+	 border-radius: 5px 5px 0 0;*/
+
+}
+.pop-up header, .pop-up footer {
+	background: #00907C;
+	color: white;
+	height: 45px;
+	line-height: 45px;
+	margin: 0;
+	padding-left: 2%;
+	font-size: 22px;
+	-webkit-border-radius: 5px 5px 0 0;
+	border-radius: 5px 5px 0 0;
+}
+.pop-up footer {
+	background: #fff;
+	border-radius: 0 0 5px 5px;
+	line-height: 20px;
+	font-size: 14px;
+	text-align: center;
+}
+.pop-up section footer button {
+	margin-right: 10px;
+	padding: 5px 0;
+	line-height: 30px;
+	width: 100px;
+}
+}
+.pop-up section div {
+	padding: 2% 10% 2% 2%;
+	text-align: center;
+}
+.pop-up input {
+	width: 48%;
+	display: inline-block;
+	max-width: 200px;
+	margin: 2%;
+}
+.pop-up label {
+	width: 48%;
+	text-align: right;
+}
+.pop-up p {
+	font-weight: bold;
+	font-size: 18px;
+	margin: 2% 0 0 0;
+}
+.pop-up p span {
+	padding: 2%;
+	font-size: 28px;
+}
+.pop-up .p-close {
+	height: 30px;
+	width: 30px;
+	position: absolute;
+	right: 2%;
+	top: 7px;
+	background: url('../images/p-close.png') no-repeat;
+	background-size: 90%;
+	background-position: 50% 50%;
+}
+/*Overriding bootstrap default style sheet*/
+.panel-heading {
+	padding: 0px;
+}
+.panel-heading > h4 {
+	padding: 10px 15px;
+}
+/*bookedRooms*/
+.bookedRoomsDiv {
+	margin-top: 20px;
+}
+.rooms {
+	background: white;
+	height: 50px;
+	width: 1000px;
+	margin: auto;
+	margin-top: 15px;
+	margin-bottom: 5px;
+	-webkit-box-shadow: -4px -2px 29px 2px rgba(165,84,0,1);
+	-moz-box-shadow: -4px -2px 29px 2px rgba(165,84,0,1);
+	box-shadow: -4px -2px 29px 2px rgba(165,84,0,1);
+}
+.rooms div {
+	display: inline-block;
+	width: 200px;
+	height: 50px;
+}
+#part-5 {
+	background: rgba(165,84,0,1);
+	color: white;
+	padding: 20px;
+}
+
+/*dbs profile picture drop down styling*/
+.dbs-profile-menu {
+	min-width: 250px;
+	color: #fff;
+}
+.dbs-profile-menu li:first-child {
+	margin-top: -5px;
+}
+.dbs-profile-menu li:first-child > div {
+	text-align: center;
+	background: #cd0000;
+}
+.dbs-profile-menu li:first-child > div > img {
+	border-radius: 50%;
+	border: 3px solid #6d0000;
+	display: block;
+	margin: auto;
+}
+.dbs-profile-menu li:first-child > div > h6 {
+	border-bottom: 1px solid;
+}
+.dbs-profile-menu .pull-left {
+	margin-left: 5px;
+}
+.dbs-profile-menu .pull-right {
+	margin-right: 5px;
+}
+.loading-spiner-holder {
+	height: 100%;
+	width: 100%;
+	background: black;
+	z-index: 99999;
+	opacity: 0.6;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+.loading-spiner {
+	/* width: 28px;
+	 height: 28px;
+	 border: 1px solid black; */
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	padding: 5px;
+	/* background: white; */
+	border-radius: 4px;
+}
+/*sraban*/
+.container {
+	max-width: 1100px;
+	margin: 0 auto;
+}
+section.module.content {
+	background-color: rgba(255,255,100,0.6);
+}
+
+section.module:last-child {
+	margin-bottom: 0px;
+}
+section.module h2 {
+	font-size: 30px;
+	margin-bottom: 40px;
+	font-family: "Roboto Slab", serif;
+}
+section.module p {
+	margin-bottom: 40px;
+	font-size: 16px;
+	font-weight: 300;
+}
+section.module p:last-child {
+	margin-bottom: 0;
+}
+section.module.content {
+	padding: 40px 0;
+}
+section.module.parallax {
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	height: 600px;
+	background-position: 50% 50%;
+}
+section.module.parallax h1 {
+	color: rgba(25, 155, 205, 1);
+	font-size: 48px;
+	line-height: 600px;
+	font-weight: 700;
+	text-align: center;
+	text-transform: uppercase;
+	text-shadow: 0 0 10px rgba(25, 0, 25, 0.4);
+}
+section.module.parallax-1 {
+	background-image: url("../images/taj.jpg");
+}
+section.module.parallax-2 {
+	background-image: url("../images/receptiondesk.jpg");
+}
+
+/* css for contact-us page*/
+
+#first::-webkit-input-placeholder, #inputEmail::-webkit-input-placeholder, #number::-webkit-input-placeholder, #feedback::-webkit-input-placeholder {
+	color: red;
+}
+#first::-moz-placeholder, #inputEmail::-moz-placeholder, #number::-moz-placeholder, #feedback::-moz-placeholder {
+	color: red;
+}
+#first::-ms-input-placeholder, #inputEmail::-ms-input-placeholder, #number::-ms-input-placeholder, #feedback::-ms-input-placeholder {
+	color: red;
+}
+form#contact {
+	position: absolute;
+	font-size: 12px;
+	height: 75%;
+	left: 15%;
+	top: 25%;
+}
+.mail {
+	background-image: url("../images/latest_contact.png");
+	background-repeat: no-repeat;
+	background-size: inherit;
+	width: 917px;
+	position: absolute;
+	top: 10%;
+	right: 0%;
+	height: 85%;
+}
+
+.address {
+	border: 1px solid green;
+	border-radius: 14px;
+	background: darkcyan;
+	color: white;
+	position: absolute;
+	top: 20%;
+	left: 5%;
+}
+#refreshButton {
+	margin-top: 0;
+	background: brown;
+	border: 1px solid white;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.dropdown-menu li:hover {
+	cursor: pointer !important;
+}
+
+.my-legend .legend-title {
+	text-align: left;
+	margin-bottom: 5px;
+	font-weight: bold;
+	font-size: 90%;
+}
+.my-legend .legend-scale ul {
+	margin: 0;
+	margin-bottom: 5px;
+	padding: 0;
+	float: left;
+	list-style: none;
+}
+.my-legend .legend-scale ul li {
+	font-size: 80%;
+	list-style: none;
+	margin-left: 0;
+	line-height: 18px;
+	margin-bottom: 2px;
+}
+.my-legend ul.legend-labels li span {
+	display: block;
+	float: left;
+	height: 16px;
+	width: 30px;
+	margin-right: 5px;
+	margin-left: 0;
+	border: 1px solid #999;
+}
+.my-legend .legend-source {
+	font-size: 70%;
+	color: #999;
+	clear: both;
+}
+.my-legend a {
+	color: #777;
+}
+.my-legend {
+	color: white;
+	position: absolute;
+	top: 3px;
+}

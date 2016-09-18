@@ -1,0 +1,85 @@
+<div class="container">
+	<div class="row">
+		<div class="inputDiv col-md-4 col-md-offset-7">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<strong class="">Register</strong>
+
+				</div>
+				<div class="panel-body">
+					<form class="form-horizontal" role="form" class="registerForm" ng-submit="register()">
+
+						<div class="form-group">
+							<label for="fName" class="col-sm-3 control-label">First Name</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" ng-model="firstName" id="fName" placeholder="First Name" required="">
+							</div>
+							
+						</div>
+						<div class="form-group">
+							
+						</div>
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-3 control-label">Email</label>
+							<div class="col-sm-9">
+								<input type="email" class="form-control" ng-model="email" id="inputEmail3" placeholder="Email" required="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="pwd1" class="col-sm-3 control-label">Password</label>
+							<div class="col-sm-9">
+								<input type="password" class="form-control" ng-model="password" id="pwd1" placeholder="Password" required="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="pwd2" class="col-sm-3 control-label"> Confirm Password</label>
+							<div class="col-sm-9">
+								<input type="password" class="form-control" ng-model="passwordCheck" id="pwd2" placeholder="Password" required="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="country" class="col-sm-3 control-label">Country</label>
+							<div class="col-sm-9">
+								<select class="form-control" id="country" data-ng-model="selectedCountry"  required>
+									<option ng-repeat='country in Countries.items' value='{{country.StateGroupID}}'>{{country.name}}</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="state" class="col-sm-3 control-label">State</label>
+							<div class="col-sm-9">
+								<select class="form-control" required data-ng-model="selectedState" required>
+									<option value="">Please select a state</option>
+									<option ng-repeat='state in getStates()' value="{{state.name}}">{{state.name}}</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="city" class="col-sm-3 control-label">City</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" ng-model="city" id="city" placeholder="city" required="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="mobNo" class="col-sm-3 control-label">Phone No:</label>
+							<div class="col-sm-9">
+								<input type="tel" class="form-control" id="mobNo" ng-model="phoneNumber" placeholder="Mobile Number" required="">
+							</div>
+						</div>
+						<div class="form-group last">
+							<div class="col-sm-offset-3 col-sm-9">
+								<button class="btn btn-success btn-sm">
+									Sign in
+								</button>
+								<button type="reset" class="btn btn-default btn-sm">
+									Reset
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,56 @@
+﻿create table room(roomNo int not null,floor int not null,typeId int not null,foreign key(typeId) references roomType(typeId),primary key(roomNo));
+create table bookedRooms(roomNo int,bookedOn date,customerId int,transId int,foreign key(roomNo) references room(roomNo),foreign key(customerId) references customers(id),primary key(roomNo,bookedOn));
+create table comments(firstname varchar(30),mobile varchar(15),message varchar(1000));
+create table customers();
+
+
+desc customers;
+
+insert into room values(101,1,1),(102,1,1),(103,1,1),(104,1,1),(105,1,2),(106,1,2),(107,1,2),(108,1,2),(109,1,2),(201,2,3),(202,2,3),(203,2,3),(204,2,3),(205,2,3),(206,2,4),(207,2,4),(208,2,4),(209,2,4);
+insert into bookedRooms values(101,CURDATE()+1,5,10),(101,CURDATE()+2,5,10),(102,CURDATE()+2,5,20),(103,CURDATE()+3,6,30),(103,CURDATE()+4,6,30),(201,CURDATE()+5,7,40),(107,CURDATE()+6,7,50),(204,CURDATE()+2,10,60);
+insert into comments values('joseph','8008909081','I would like what are the offers available');
+
+
+drop table bookedRooms;
+
+
+delete from room where floor!=7;
+delete from roomType where ac!=1;
+
+insert into bookedRooms values(103,'2015-12-10',5,61),(103,'2015-12-11',5,61);
+CALL checkoutlist()
+
+select * from customers;
+select * from roomType;
+select * from room;
+select * from bookedRooms;
+select * from customers;
+select * from comments;
+
+select max(transid)+1 from bookedRooms;
+select * from bookedRooms; where customerid='7';
+
+select * from roomType where typeID=1 ;
+select typeId from room where roomNo='101';
+
+select a.roomNo , c.area, c.ac, c.kitchen,c.price from room as a LEFT OUTER JOIN roomType as c on a.typeId = c.typeId where a.roomNo not in (select roomNo from bookedRooms where bookedOn ='2015-12-09');
+
+select z.roomNo,z.floor,x.area,x.ac,x.kitchen from room as z,roomtype as x where z.roomNo in (select distinct a.roomNo from room as a,bookedRooms as b where b.bookedOn not in (2015-12-01));
+select distinct a.roomNo from room as a,bookedRooms as b where a.roomNo!=b.roomNo;
+
+
+select roomno,min(bookedOn),max(bookedOn),DATEDIFF(max(bookedOn),min(bookedOn))+1,customerid from bookedRooms group by roomno,customerId,transId;
+select room.roomNo,roomtype.price from room,roomtype where room.typeId=roomtype.typeId;
+
+
+-- /#################################to get booked details of all customers##########################################################/;
+select sub1.roomno,sub1.mn,sub1.mx,sub1.diff,sub1.customerid,sub2.price*sub1.diff price
+ from (select roomno,min(bookedOn) mn,max(bookedOn) mx,DATEDIFF(max(bookedOn),min(bookedOn))+1 diff,customerid from bookedRooms group by roomno,customerId,transId) sub1
+,(select room.roomNo,roomtype.price from room,roomtype where room.typeId=roomtype.typeId) sub2
+where sub1.roomno=sub2.roomno;
+
+-- /################################to get details for particular customer#########################################################/;
+select sub1.roomno,sub1.mn,sub1.mx,sub1.diff,sub1.customerid,sub2.price*sub1.diff price
+ from (select roomno,min(bookedOn) mn,max(bookedOn) mx,DATEDIFF(max(bookedOn),min(bookedOn))+1 diff,customerid from bookedRooms group by roomno,customerId,transId) sub1
+,(select room.roomNo,roomtype.price from room,roomtype where room.typeId=roomtype.typeId) sub2
+where sub1.roomno=sub2.roomno and sub1.customerId=5 ;

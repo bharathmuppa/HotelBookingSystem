@@ -1,0 +1,21 @@
+REST methodologies-generally used in mobile apps
+before opening index.html->cloase all chrome tabs,window+r->chrome --disable-web-security (if
+ yellow status didn't appear then window+r ->taskmgr->kill chrome tab by right clicking the chrome icon
+
+in worst csae: chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security 
+and open the url in this window
+
+-------front end------------
+html->views,Bootstrap->css,js,angular implements ajax-->DOM manipulations
+    
+
+
+--server end----
+
+java->language,jersey,jackson ->rest services
+apache-tomcat-server
+
+
+file:///F:/press/Hotel/Hotel/index.html#/login
+$location.url('/home');
+

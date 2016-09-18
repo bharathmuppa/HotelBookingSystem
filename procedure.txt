@@ -1,0 +1,13 @@
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `lucky`.`checkoutlist`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE  `lucky`.`checkoutlist`(in custId int)
+BEGIN
+
+select sub1.roomno,sub1.mn,sub1.mx,sub1.diff,sub1.customerid,sub2.price*sub1.diff price,sub1.transId
+ from (select roomno,min(bookedOn) mn,max(bookedOn) mx,DATEDIFF(max(bookedOn),min(bookedOn))+1 diff,customerid,transId from bookedRooms group by roomno,customerId,transId) sub1
+,(select room.roomNo,roomtype.price from room,roomtype where room.typeId=roomtype.typeId) sub2
+where sub1.roomno=sub2.roomno and (sub1.customerId=custId or custId=0);
+END $$
+
+DELIMITER ;

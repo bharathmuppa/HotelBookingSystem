@@ -1,0 +1,54 @@
+<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="">TAJ Banjara</a>
+				</div>
+				<div>
+					<ul class="nav navbar-nav" >
+						<li ng-if="loginFlag==true" ng-click="goToPage('home',$event)">
+							<a href="">Home</a>
+						</li>
+						<li ng-if="loginFlag==true" ng-click="goToPage('bookedRooms',$event)">
+							<a href="">CheckOut</a>
+						</li>
+
+						<li ng-if="loginFlag==false" ng-click="goToPage('about',$event)">
+							<a href="">About</a>
+						</li>
+						<li class="active" ng-click="goToPage('contact',$event)">
+							<a href="">Contact</a>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li ng-if="loginFlag==false" ng-click="goToPage('register',$event)">
+							<a><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+						</li>
+
+						<li ng-if="loginFlag==false" ng-click="goToPage('login',$event)">
+							<a><span class="glyphicon glyphicon-log-in"></span> Login</a>
+						</li>
+						<li class="dropdown" ng-if="loginFlag==true">
+							<a class="dropdown-toggle" role="button" data-toggle="dropdown" href="" ng-cloak> <i class="glyphicon glyphicon-user"></i> {{setLoginObj.firstName}} <span class="caret"></span></a>
+							<ul id="g-account-menu" class="dropdown-menu dbs-profile-menu" role="menu">
+								<li>
+									<div>
+										<img class="img-responsive" src="images/profile-pic.png"/>
+
+										<h6 ng-cloak>{{setLoginObj.email}}</h6>
+										<h5>Logged In Information</h5>
+										<p>
+											<small ng-cloak>{{setLoginObj.lastLogin}}</small>
+										</p>
+									</div>
+								</li>
+								<li class="pull-right">
+									<button class="btn btn-default dbs-btn" ng-click="logout()">
+										Logout
+									</button>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
