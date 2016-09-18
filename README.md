@@ -4,9 +4,12 @@ A simple project for Hotel Booking which is based on java for providing RestAPI 
 #Installatoin Required
 
 1. MySql
+2. MySQL Query browser
 2. apache tomcat
 3. Eclipse (preferably Mars)
 4. Sublime or any platform you like
+
+Then clone or download the project.
 
 ## DataBase Settings
 
@@ -17,3 +20,19 @@ $ mysqldump yourFirstDatabase -u user -ppassword > yourDatabase.sql(this is our 
 $ mysql yourSecondDatabase -u user -ppassword < yourDatabase.sql(you need to dump like this)
 
 ``` 
+open querybrowser 
+navigate to our schema/DB
+Add some values in customer table so that you can use in webapplication
+
+## RestAPI
+
+you can open Eclipse and import DataRestAPI from clonned or downlaoded content
+Run the imported project on tomcat server.(if you want to change the port you can change)
+
+##Web application
+
+open index.html from any server or you need to work on cross-origin issues.
+enter credentials(which you have added in before step)
+
+BINGO...
+
